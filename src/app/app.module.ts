@@ -6,18 +6,20 @@ import { RouterModule, Routes } from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 const appRoutes: Routes = [
   { path: 'movies', component: MoviesComponent },
-  { path: '', component: AppComponent }
+  { path: '', component: CategoriesComponent }
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent
+    MoviesComponent,
+    CategoriesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(
